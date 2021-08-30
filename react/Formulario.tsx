@@ -3,6 +3,7 @@ import axios from "axios"
 import classes from "./styles/Formulario.module.css"
 import { LEADS_API_URL } from "./utils/constants"
 import { phoneMask, validateEmail } from "./utils/utils"
+import SuccessAnimation from "./components/SuccessAnimation"
 const CircularProgress = lazy(() => import("@material-ui/core/CircularProgress"))
 
 const initial = {
@@ -145,15 +146,9 @@ const Formulario: React.FC = () => {
 						/>
 					</Suspense>
 				)}
-				{showSucessMsg && (
-					<p className={classes.successMsg}>
-						Cadastrado com sucesso!
-						<br />
-						Logo você receberá seu exame
-						<br />
-						por e-mail.
-					</p>
-				)}
+				{showSucessMsg && 
+						<SuccessAnimation />
+				}
 			</form>
 		</div>
 	)
